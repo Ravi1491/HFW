@@ -1,20 +1,28 @@
 import './Sidebar.css';
 import { navElements } from '../header/Header';
-import { useNavigate } from 'react-router-dom';
 
 export default function Sidebar({ setShowSidebar }) {
-  const navigate = useNavigate();
+  const handleTabClick = (unquieId) => {
+    if (unquieId === 'menu') {
+      return null;
+    }
+    else {
+      const targetSection = document.getElementById(unquieId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
+
   return (
     <nav className="sidebar">
       <button onClick={() => setShowSidebar(false)}>X</button>
       <ul>
-        {navElements.map(({ label, route }) => {
+        {navElements.map(({ label, unquieId }) => {
           if (label === 'Menu') return null;
           return (
             <li
-              onClick={() => {
-                navigate(`/${route}`);
-              }}
+              onClick={() => handleTabClick(unquieId)}
               key={label}
             >
               {label}
