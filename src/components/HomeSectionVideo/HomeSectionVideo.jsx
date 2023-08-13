@@ -19,7 +19,7 @@ export default function HomeSectionVideo() {
       </video>
       <div className="overlay">
         <div className="overlay-content">
-          <h1 className='overlay-content-h1'>We do laundry with love, care and professionalism</h1>
+          <h1 className='overlay-content-h1'>We Do Laundry With Love, Care And Professionalism</h1>
           <h5 className='overlay-content-h5'>Book Laundry Slot Now</h5>
           {/* <h5></h5> */}
           <button className="demo-button">

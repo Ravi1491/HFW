@@ -1,4 +1,5 @@
 import './ImageBackgroundSection.css';
+import modelSImage from '../../assets/model-s.jpg';
 
 export default function ImageBackgroundSection({
   backgroundImage,
@@ -10,7 +11,9 @@ export default function ImageBackgroundSection({
     <div
       className="image-background"
       style={{
-        backgroundImage: `url(${backgroundImage})`
+        // backgroundImage: `${backgroundImage}`,
+        // backgroundImage: {modelSImage}
+        // backgroundColor: #04b5ee
       }}
     >
       <div className="overlay">

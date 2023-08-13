@@ -3,33 +3,39 @@ import './Header.css';
 import logo from '../../assets/logov3.png';
 
 export const navElements = [
-  { label: <img src={logo} height='50px' width='250px'/>, route: '', style: {  marginRight: '260px'} },
-  { label: 'Services', route: 'model_s', style: { textAlign: 'center' } },
-  { label: 'Testimonials', route: 'model_x', className: 'underline-on-hover' },
-  { label: 'Orders Served', route: 'cybertruck' },
-  { label: 'About Us', route: 'shop' },
-  { label: 'Menu', route: null, style: { marginLeft: 'auto' }  },
+  { label: <img src={logo} alt="Logo" height='50px' width='250px' style={{ backgroundColor: 'white', padding: '10px' }} />, route: '', style: { marginRight: '260px' }, noHover: true },
+  { label: 'Services', unquieId:'services', style: { textAlign: 'center' } },
+  { label: 'Testimonials', unquieId:'testimonials', className: 'underline-on-hover' },
+  { label: 'Orders Served', unquieId:'orders' },
+  { label: 'About Us', unquieId:'about'},
+  { label: 'Menu', unquieId:'menu', style: { marginLeft: 'auto' }  },
 ];
 
 export default function Header({ setShowSidebar }) {
-  const navigate = useNavigate();
+  const handleTabClick = (unquieId) => {
+    if (unquieId === 'menu') {
+      setShowSidebar(true);
+    }
+    else {
+      const targetSection = document.getElementById(unquieId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <>
       <nav>
         <ul className="headerList">
-          {navElements.map(({ label, route, style = {} }) => {
+          {navElements.map(({ label, unquieId, style = {}, noHover }) => {
+            const liClassName = noHover ? 'no-hover' : 'underline-on-hover';
+
             return (
-              <li className='underline-on-hover'
+              <li className={liClassName}
                 style={style}
                 key={label}
-                onClick={() => {
-                  if (label === 'Menu') {
-                    setShowSidebar(true);
-                  } else {
-                    navigate(`/${route}`);
-                  }
-                }}
+                onClick={() => handleTabClick(unquieId)}
               >
                 {label}
               </li>
