@@ -7,6 +7,7 @@ import cybertruckImage from '../assets/cybertruck.jpg';
 export default function HomePage() {
   return (
     // commit - 1
+    // commit - 2
     <div className="container">
       <section className="section" id="home">
         <HomeSectionVideo />
