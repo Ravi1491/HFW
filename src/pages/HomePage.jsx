@@ -8,7 +8,6 @@ export default function HomePage() {
   return (
     // commit - 1
     // commit - 2
-    // commit - 3
     <div className="container">
       <section className="section" id="home">
         <HomeSectionVideo />
